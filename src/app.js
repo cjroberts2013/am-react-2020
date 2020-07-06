@@ -1,33 +1,63 @@
 console.log('app.js is running')
 
-var title = 'Welcome to Texas!'
-var subtitle = 'We are happy to have you.'
+const title = 'Welcome to Texas!'
+const subtitle = 'We are happy to have you.'
 
-var template = (
+const template = (
     <div>
         <h1>{title}</h1>
         <p>{subtitle}</p>
     </div>
 );
 
-var user = {
+const user = {
     name: 'Christina',
     age: 25,
     location: 'Novi'
 }
 
-var userName = 'Cole';
-var userAge = 25;
-var userLocation = 'Austin'
+const userName = 'Cole';
+const userAge = 25;
+const userLocation = 'Austin'
 
-var template2 = (
+
+
+let count = 0;
+const addOne = () => {
+    this.count++
+}
+const subOne = () => {
+    this.count--
+}
+const reset = () => {
+    count = 0
+}
+
+const template2 = (
     <div>
-        <h1>{user.name ? user.name : Anonymous}</h1>
-        <p>Age: {user.age}</p>
-        <p>Location: {user.location}</p>
+        <h1>Count: {count}</h1>
+        <button onClick={addOne}>+1</button>
+        <button onClick={subOne}>-1</button>
+        <button onClick={reset}>-1</button>
     </div>
 );
+console.log(count)
 
-var appRoot = document.getElementById('app');
+//ARROW FUNCTION PRACTICE
 
-ReactDOM.render(template, appRoot)
+// const multiplier = {
+//     numbers: [1, 2, 3, 4, 5],
+//     multiplyBy: 2,
+//     multiply() {
+//         return this.numbers.map((num) => num * this.multiplyBy)
+//     }
+// }
+
+// console.log(multiplier.multiply())
+
+
+
+const appRoot = document.getElementById('app');
+
+ReactDOM.render(template2, appRoot)
+
