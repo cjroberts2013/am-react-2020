@@ -1,100 +1,29 @@
 "use strict";
 
-// console.log('app.js is running')
-// const title = 'Welcome to Texas!'
-// const subtitle = 'We are happy to have you.'
-// const template = (
-//     <div>
-//         <h1>{title}</h1>
-//         <p>{subtitle}</p>
-//     </div>
-// );
-// const user = {
-//     name: 'Christina',
-//     age: 25,
-//     location: 'Novi'
-// }
-// const userName = 'Cole';
-// const userAge = 25;
-// const userLocation = 'Austin'
-// ARROW FUNCTION PRACTICE //
-// const multiplier = {
-//     numbers: [1, 2, 3, 4, 5],
-//     multiplyBy: 2,
-//     multiply() {
-//         return this.numbers.map((num) => num * this.multiplyBy)
-//     }
-// }
-// console.log(multiplier.multiply())
-// PRACTICE DATA BINDINGING //
-// let count = 0;
-// const addOne = () => {
-//     count++;
-//     renderCounterApp();
-// }
-// const subOne = () => {
-//     count--;
-//     renderCounterApp();
-// }
-// const reset = () => {
-//     count = 0;
-//     renderCounterApp();
-// }
-// const renderCounterApp = () => {
-//     const template2 = (
-//         <div>
-//             <h1>Count: {count}</h1>
-//             <button onClick={addOne}>+1</button>
-//             <button onClick={subOne}>-1</button>
-//             <button onClick={reset}>reset</button>
-//         </div>
-//     );
-//     console.log(count);
-//     ReactDOM.render(template2, appRoot)
-// };
-// renderCounterApp();
-var app = {
-  title: 'This is my App',
-  subtitle: 'Put your life in the hands of a computer.',
-  options: []
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var onFormSubmit = function onFormSubmit(e) {
-  e.preventDefault();
-  var option = e.target.elements.option.value;
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-  if (option) {
-    app.options.push(option);
-    e.target.elements.option.value = '';
-    renderForm();
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Person = /*#__PURE__*/function () {
+  function Person() {
+    var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Anonymous';
+
+    _classCallCheck(this, Person);
+
+    this.name = name;
   }
-};
 
-var empty = function empty() {
-  app.options = [];
-  renderForm();
-};
+  _createClass(Person, [{
+    key: "getGreeting",
+    value: function getGreeting() {
+      return "Hello ".concat(this.name);
+    }
+  }]);
 
-var user = {
-  name: 'Christina',
-  age: 25,
-  location: 'Novi'
-};
-var userName = 'Cole';
-var userAge = 25;
-var userLocation = 'Austin';
-var appRoot = document.getElementById('app');
+  return Person;
+}();
 
-var renderForm = function renderForm() {
-  var template = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Form"), /*#__PURE__*/React.createElement("p", null, "Fill in data below"), /*#__PURE__*/React.createElement("p", null, app.options.length), /*#__PURE__*/React.createElement("form", {
-    onSubmit: onFormSubmit
-  }, /*#__PURE__*/React.createElement("input", {
-    type: "text",
-    name: "option"
-  }), /*#__PURE__*/React.createElement("button", null, "Add Option")), /*#__PURE__*/React.createElement("button", {
-    onClick: empty
-  }, "Empty options"));
-  ReactDOM.render(template, appRoot);
-};
-
-renderForm();
+var me = new Person('CJ Roberts');
+console.log(me.getGreeting());
