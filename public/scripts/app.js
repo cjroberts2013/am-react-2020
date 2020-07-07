@@ -22,36 +22,65 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var Header = /*#__PURE__*/function (_React$Component) {
-  _inherits(Header, _React$Component);
+var IndecisionApp = /*#__PURE__*/function (_React$Component) {
+  _inherits(IndecisionApp, _React$Component);
 
-  var _super = _createSuper(Header);
+  var _super = _createSuper(IndecisionApp);
+
+  function IndecisionApp() {
+    _classCallCheck(this, IndecisionApp);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(IndecisionApp, [{
+    key: "render",
+    value: function render() {
+      var title = "Indecision";
+      var subtitle = "Put your life in the hands of a computer";
+      var options = ['Thing one', 'Thing two', 'Thing three', 'Thing four'];
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, {
+        title: title,
+        subtitle: subtitle
+      }), /*#__PURE__*/React.createElement(Action, null), /*#__PURE__*/React.createElement(Options, {
+        options: options
+      }), /*#__PURE__*/React.createElement(AddOptions, null));
+    }
+  }]);
+
+  return IndecisionApp;
+}(React.Component);
+
+var Header = /*#__PURE__*/function (_React$Component2) {
+  _inherits(Header, _React$Component2);
+
+  var _super2 = _createSuper(Header);
 
   function Header() {
     _classCallCheck(this, Header);
 
-    return _super.apply(this, arguments);
+    return _super2.apply(this, arguments);
   }
 
   _createClass(Header, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Indecision"), /*#__PURE__*/React.createElement("h2", null, "Put your life in the hands of a computer"));
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, this.props.title), /*#__PURE__*/React.createElement("h2", null, this.props.subtitle));
     }
   }]);
 
   return Header;
 }(React.Component);
 
-var Action = /*#__PURE__*/function (_React$Component2) {
-  _inherits(Action, _React$Component2);
+var Action = /*#__PURE__*/function (_React$Component3) {
+  _inherits(Action, _React$Component3);
 
-  var _super2 = _createSuper(Action);
+  var _super3 = _createSuper(Action);
 
   function Action() {
     _classCallCheck(this, Action);
 
-    return _super2.apply(this, arguments);
+    return _super3.apply(this, arguments);
   }
 
   _createClass(Action, [{
@@ -64,47 +93,72 @@ var Action = /*#__PURE__*/function (_React$Component2) {
   return Action;
 }(React.Component);
 
-var Options = /*#__PURE__*/function (_React$Component3) {
-  _inherits(Options, _React$Component3);
+var Options = /*#__PURE__*/function (_React$Component4) {
+  _inherits(Options, _React$Component4);
 
-  var _super3 = _createSuper(Options);
+  var _super4 = _createSuper(Options);
 
   function Options() {
     _classCallCheck(this, Options);
 
-    return _super3.apply(this, arguments);
+    return _super4.apply(this, arguments);
   }
 
   _createClass(Options, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, "Options component here");
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", null, this.props.options.map(function (x, i) {
+        return /*#__PURE__*/React.createElement(Option, {
+          key: i,
+          optionText: x
+        });
+      })));
     }
   }]);
 
   return Options;
 }(React.Component);
 
-var AddOptions = /*#__PURE__*/function (_React$Component4) {
-  _inherits(AddOptions, _React$Component4);
+var Option = /*#__PURE__*/function (_React$Component5) {
+  _inherits(Option, _React$Component5);
 
-  var _super4 = _createSuper(AddOptions);
+  var _super5 = _createSuper(Option);
+
+  function Option() {
+    _classCallCheck(this, Option);
+
+    return _super5.apply(this, arguments);
+  }
+
+  _createClass(Option, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React.createElement("div", null, this.props.optionText);
+    }
+  }]);
+
+  return Option;
+}(React.Component);
+
+var AddOptions = /*#__PURE__*/function (_React$Component6) {
+  _inherits(AddOptions, _React$Component6);
+
+  var _super6 = _createSuper(AddOptions);
 
   function AddOptions() {
     _classCallCheck(this, AddOptions);
 
-    return _super4.apply(this, arguments);
+    return _super6.apply(this, arguments);
   }
 
   _createClass(AddOptions, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", null, "Add Otion"));
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", null, "Add Opion"));
     }
   }]);
 
   return AddOptions;
 }(React.Component);
 
-var jsx = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, null), /*#__PURE__*/React.createElement(Action, null), /*#__PURE__*/React.createElement(Options, null), /*#__PURE__*/React.createElement(AddOptions, null));
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render( /*#__PURE__*/React.createElement(IndecisionApp, null), document.getElementById('app'));
