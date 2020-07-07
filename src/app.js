@@ -1,39 +1,52 @@
+class Header extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1>Indecision</h1>
+                <h2>Put your life in the hands of a computer</h2>
+            </div>
 
-class Person {
-    constructor(name = 'Anonymous', age = 0) {
-        this.name = name,
-            this.age = age
-    }
-    getGreeting() {
-        return `Hello ${this.name}`
-    }
-    getDescription() {
-        return `${this.name} is ${this.age} years old!`
+        )
     }
 }
 
-
-class Student extends Person {
-    constructor(name, age, major) {
-        super(name, age);
-        this.major = major;
-    }
-    hasMajor() {
-        return !!this.major;
-    }
-    getDescription() {
-        let description = super.getDescription();
-
-        if (this.hasMajor()) {
-            description += ` ${this.name.split(' ')[0]} is majoring in ${this.major}.`;
-        }
-
-        return description
+class Action extends React.Component {
+    render() {
+        return (
+            <div>
+                <button>What should I do?</button>
+            </div>
+        )
     }
 }
 
-const me = new Student('CJ Roberts', 25, 'Biochemistry');
-const anon = new Student();
+class Options extends React.Component {
+    render() {
+        return (
+            <div>
+                Options component here
+            </div>
+        )
+    }
+}
 
-console.log(me.getDescription());
-console.log(anon.getDescription());
+class AddOptions extends React.Component {
+    render() {
+        return (
+            <div>
+                <button>Add Otion</button>
+            </div>
+        )
+    }
+}
+
+const jsx = (
+    <div>
+        <Header />
+        <Action />
+        <Options />
+        <AddOptions />
+    </div>
+)
+
+ReactDOM.render(jsx, document.getElementById('app'))
