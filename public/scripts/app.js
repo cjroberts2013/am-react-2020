@@ -36,6 +36,7 @@ var IndecisionApp = /*#__PURE__*/function (_React$Component) {
     _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_assertThisInitialized(_this));
     _this.handlePick = _this.handlePick.bind(_assertThisInitialized(_this));
     _this.handleAddOption = _this.handleAddOption.bind(_assertThisInitialized(_this));
+    _this.handleDeleteOption = _this.handleDeleteOption.bind(_assertThisInitialized(_this));
     _this.state = {
       options: []
     };
@@ -48,6 +49,17 @@ var IndecisionApp = /*#__PURE__*/function (_React$Component) {
       this.setState(function () {
         return {
           options: []
+        };
+      });
+    }
+  }, {
+    key: "handleDeleteOption",
+    value: function handleDeleteOption(optionToRemove) {
+      this.setState(function (prevState) {
+        return {
+          options: prevState.options.filter(function (option) {
+            return optionToRemove !== option;
+          })
         };
       });
     }
@@ -83,6 +95,7 @@ var IndecisionApp = /*#__PURE__*/function (_React$Component) {
         hasOptions: this.state.options.length > 0,
         handlePick: this.handlePick
       }), /*#__PURE__*/React.createElement(Options, {
+        handleDeleteOption: this.handleDeleteOption,
         options: this.state.options,
         handleDeleteOptions: this.handleDeleteOptions
       }), /*#__PURE__*/React.createElement(AddOptions, {
@@ -115,13 +128,18 @@ var Options = function Options(props) {
   }, "Remove All Options"), /*#__PURE__*/React.createElement("div", null, props.options.map(function (x, i) {
     return /*#__PURE__*/React.createElement(Option, {
       key: i,
-      optionText: x
+      optionText: x,
+      handleDeleteOption: props.handleDeleteOption
     });
   })));
 };
 
 var Option = function Option(props) {
-  return /*#__PURE__*/React.createElement("div", null, props.optionText);
+  return /*#__PURE__*/React.createElement("div", null, props.optionText, /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick(e) {
+      props.handleDeleteOption(props.optionText);
+    }
+  }, "Remove"));
 }; // Set up form with input and submit
 // Wire up onSubmit
 // HandleAddOption
