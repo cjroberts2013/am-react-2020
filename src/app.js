@@ -144,10 +144,6 @@ const Option = (props) => {
     )
 }
 
-// Set up form with input and submit
-// Wire up onSubmit
-// HandleAddOption
-
 class AddOptions extends React.Component {
     constructor(props) {
         super(props);
